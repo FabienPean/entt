@@ -24,7 +24,7 @@ struct null {
     template<typename Entity>
     constexpr operator Entity() const ENTT_NOEXCEPT {
         using traits_type = entt_traits<Entity>;
-        return traits_type::entity_mask | (traits_type::version_mask << traits_type::entity_shift);
+        return Entity{traits_type::entity_mask | (traits_type::version_mask << traits_type::entity_shift)};
     }
 
     constexpr bool operator==(null) const ENTT_NOEXCEPT {
